@@ -44,18 +44,6 @@ public class StudentAction extends SuperAction implements ModelDriven<Student>{
 	public String add(){
 		StudentDao sdao = new StudentDaoImpl();
 		String sid = RandomNumberGenerator.generateNumber();
-//		String sname = request.getParameter("sname");
-//		String gender = request.getParameter("gender");
-//		java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd");
-//		String s= request.getParameter("birthday"); 
-//		Date birthday = null;
-//	    try {
-//			birthday = formatter.parse(s);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//		String address = request.getParameter("address");
-//		Student student = new Student(sid,sname,gender,birthday,address);
 		student.setSid(sid);
 		sdao.addStudent(student);//调用添加方法
 		return "add_success";
@@ -73,29 +61,11 @@ public class StudentAction extends SuperAction implements ModelDriven<Student>{
 	}
 	//修改学生信息动作
 	public String save(){
-//		String sid = request.getParameter("sid");
-//		String sname = request.getParameter("sname");
-//		String gender = request.getParameter("gender");
-//		java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd");
-//		String s= request.getParameter("birthday"); 
-//		Date birthday = null;
-//	    try {
-//			birthday = formatter.parse(s);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//		String address = request.getParameter("address");
-//		Student student = new Student(sid,sname,gender,birthday,address);
 		StudentDao sdao = new StudentDaoImpl();
 		sdao.updateStudent(student);
 		return "save_success";
 	}
 	public static void main(String[] args) throws ParseException {
-//		java.text.SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-mm-dd");
-//		String s= "2016-4-16";
-//		Date birthday = null;
-//		birthday = formatter.parse(s);
-//		System.out.println(birthday);
 		String dateString = "2016-4-16";  
 		try  
 		{  
