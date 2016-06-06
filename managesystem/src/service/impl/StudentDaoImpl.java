@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import service.StudentDao;
 import db.MyHibernateSessionFactory;
 import entity.Student;
+import entity.User;
 
 /**
  * 学生业务逻辑接口实现类
@@ -136,5 +137,38 @@ public class StudentDaoImpl implements StudentDao {
 			}
 		}
 	}
+
+	@Override
+	public boolean studentLogin(Student s) {
+		//创建事物对象
+				Transaction tx = null;
+				String hql="";
+				try {
+					Session session = MyHibernateSessionFactory.getSessionFactory().getCurrentSession();
+					tx = session.beginTransaction();
+					hql = "from Student where sname=? and psw=?";
+					Query query = session.createQuery(hql);
+					query.setParameter(0, s.getSname());
+					query.setParameter(1, s.getPsw());
+					List list = query.list();
+					for (int i = 0; i < list.size(); i++) {
+						Student u = (Student)list.get(i);
+					}
+					tx.commit();//提交事务
+					if(list.size()>0){
+						return true;
+					}else{
+						return false;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					return false;
+				}finally{
+					if(tx!=null){
+						tx=null;
+					}
+				}
+				
+			}
 
 }

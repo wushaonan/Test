@@ -14,24 +14,27 @@ public class Student {
 
 	private String address;
 
+	private String psw;
+	
 	public Student() {
 	}
 
 	public Student(String sid, String sname, String gender, Date birthday,
-			String address) {
+			String address,String psw) {
 		super();
 		this.sid = sid;
 		this.sname = sname;
 		this.gender = gender;
 		this.birthday = birthday;
 		this.address = address;
+		this.psw = psw;
 	}
 
 	@Override
 	public String toString() {
 		return "Student [sid=" + sid + ", sname=" + sname + ", gender="
 				+ gender + ", birthday=" + birthday + ", address=" + address
-				+ "]";
+				+ ", psw=" + psw +"]";
 	}
 
 	public String getSid() {
@@ -72,6 +75,14 @@ public class Student {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getPsw() {
+		return psw;
+	}
+
+	public void setPsw(String psw) {
+		this.psw = psw;
 	}
 
 }

@@ -19,7 +19,7 @@
         <property name="gender" type="java.lang.String"/>
         <property name="birthday" type="date"/>
         <property name="address" type="java.lang.String"/>
-
+ 		<property name="psw" type="java.lang.String"/>
     </class>
 
 </hibernate-mapping>
