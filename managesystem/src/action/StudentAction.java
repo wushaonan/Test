@@ -9,6 +9,7 @@ import service.StudentDao;
 import service.impl.StudentDaoImpl;
 import utils.RandomNumberGenerator;
 
+import com.chinapay.util.MD5Encryptor;
 import com.opensymphony.xwork2.ModelDriven;
 
 import entity.Student;
@@ -45,6 +46,9 @@ public class StudentAction extends SuperAction implements ModelDriven<Student>{
 		StudentDao sdao = new StudentDaoImpl();
 		String sid = RandomNumberGenerator.generateNumber();
 		student.setSid(sid);
+		String psw = student.getPsw();
+		String md5Sign = MD5Encryptor.getMD5Encrypt(psw.toString());
+		student.setPsw(md5Sign);
 		sdao.addStudent(student);//调用添加方法
 		return "add_success";
 	}

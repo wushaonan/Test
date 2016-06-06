@@ -21,4 +21,6 @@ public interface StudentDao {
 	public boolean updateStudent(Student s);
 	//删除学生
 	public boolean deleteStudent(String sid);
+	//学生登录
+	public boolean studentLogin(Student s);
 }
